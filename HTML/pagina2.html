@@ -5,128 +5,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elementos HTML</title>
+    <title>Document</title>
 </head>
 
 <body>
-    <!-- HEADING -->
-    <h1>Titulo1</h1>
-    <h2>Titulo2</h2>
-    <h3>Titulo3</h3>
-    <h4>Titulo4</h4>
-    <h5>Titulo5</h5>
-    <h6>Titulo6</h6>
-    <!--Salto de linea-->
+    <h1> Estoy en la pagina 2</h1>
+    <a href="index.html">Volver a la pagina principal</a>
     <br>
-    <!--Linea horizontal-->
-    <hr>
-    <!-- Parrafos, para trabajar con texto -->
-    <p><b>Lorem</b> <i> dolor</i> <u>sit amet consectetur </u> adipisicing elit. Mollitia corrupti ducimus ratione tempora a harum, rem corporis cumque, quaerat nesciunt earum dolore minus natus fugit minima illum quo iste nostrum! </p>
-
-    <p>
-        <b>
-            <i>
-                <u>
-                    Francisco Javier Pérez Morales
-                </u>
-            </i>
-        </b>
-    </p>
-    <br>
-    <hr>
-    <!--Imagenes, tiene atributos src = source, alt = alternate-->
-    <!-- width = ancho y height = alto -->
-    <!--el alt se utiliza cuando no encuentra la imagen -->
-    <!--<img src="" alt="imagen">-->
-    <br>
-    <img src="/assets/img/rata.jpg" alt="imagen1" width="500" height="300">
-    <br>
-    <!--Al agregar solo el width o height, la imagen mantendra la proporcion-->
-    <img src="/assets/img/53j.png" alt="imagen2" width="200">
-    <br>
-    <hr>
-    <!-- Link o Hipervinculos -->
-    <a href="https://generation.org/"> Visitar Generation </a>
-    <!-- url valor absoluto, redirige a otra pagina web -->
-    <!-- target="_blank" abre la pagina en otra pestaña -->
-    <a href="http://www.lun.com/" target="_blank"> Visitar Lun</a>
-    <!-- url valor relativo, redirige dentro de la misma web-->
-    <a href="pagina2.html/"> Ir a la pagina 2</a>
-    <!-- url valor anclaje, movernos dentro de la misma pagina-->
-    <a href="#nombre">Ir a seccion de pagina</a>
-    <!-- reemplazar texto con imagen -->
-    <a href="https://generation.org/" target="_blank">
-        <img src="/assets/img/you-employed.png" alt="imagen3" width="200">
-    </a>
-    <!-- Listas : Ordenadas y las No Ordenadas -->
-    <ol>
-        <li> Grupo 1</li>
-        <li> Grupo 2</li>
-        <li> Grupo 3</li>
-        <li> Grupo 4</li>
-        <li> Grupo 5</li>
-        <li> Grupo 6</li>
-        <li>
-            <ul>
-                <li>Grupo 7.1</li>
-                <li>Grupo 7.2</li>
-                <li>
-                    <ul>
-                        <li>curso a</li>
-                        <li>curso b</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ol>
-    <!-- Listas no Ordenadas -->
-    <ul>
-        <li> Grupo 1</li>
-        <li> Grupo 2</li>
-        <li> Grupo 3</li>
-        <li> Grupo 4</li>
-        <li> Grupo 5</li>
-        <li> Grupo 6</li>
-        <li>
-            <ul>
-                <li>Grupo 7.1</li>
-                <li>Grupo 7.2</li>
-                <li>
-                    <ul>
-                        <li>curso a</li>
-                        <li>curso b</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <!--
-        <ul>
-            <c:forEach items="${lista}" var="item">
-                <li>${item}/li>
-            </c:forEach>    
-            
-        </ul> -->
+    <!-- Radio button -->
+    <!-- name deben ser iguales -->
+    <!-- solo me permite seleccionar uno y no se puede deseleccionar -->
+    <h2>Selecciona una opcion</h2>
+    <input type="radio" name="opcion " id="html" value="1"> HTML <br>
+    <input type="radio" name="opcion " id="css" value="2"> CSS <br>
+    <input type="radio" name="opcion " id="js" value="3"> JavaScript <br>
+    <!-- opcion = css -->
     <br>
     <hr>
 
-    <!-- Tablas -->
-    <table>
-        <thead>
-            <tr>
-                <th> Columnas </th>
-                <th> Nombre </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td> Filas</td>
-                <td> por cada th voy a tener que hacer un td </td>
-            </tr>
-        </tbody>
-    </table>
-
-
+    <!-- Checkbox -->
+    <!-- se puede seleccionar mas de uno -->
+    <!-- el for hace referencia al id -->
+    <h2>Seleccione las opciones que quiera</h2>
+    <input type="checkbox" name="opciones1" id="opciones1" value="html"><label for="opciones1">HTML</label> <br>
+    <input type="checkbox" name="opciones2" id="opciones2" value="css"><label for="opciones2">CSS</label><br>
+    <input type="checkbox" name="opciones3" id="opciones3" value="js"><label for="opciones3">JavaScript</label><br>
+    <br>
+    <hr>
+    <!-- Select -->
+    <!-- El id y el name, se pueden llamar igual -->
+    <h2>Seleccione una opcion</h2>
+    <select id="lenguajes" name="lenguajes">
+        <option value="0" selected>Seleccione un lenguaje</option>
+        <option value="1" >Java</option>
+        <option value="2" >Python</option>
+        <option value="3" >JavaScript</option>
+        <option value="4" >C#</option>
+        <option value="5" >Ruby</option>
+    </select>
 </body>
 
 </html>
