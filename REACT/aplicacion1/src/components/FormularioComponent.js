@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 
 //formulario vacio - ingresar datos vacios
@@ -14,27 +14,44 @@ const initialValues = [
 
 //el set llena el formulario vacio, con todos los atributos
 
-const FormularioComponent = ({usuarioAdd}) => {
+const FormularioComponent = ({ usuarioAdd, usuarioEditado, usuarioEdit}) => {
 
     const [values, setValues] = useState(initialValues);
     const { key, nombre, apellido, edad, password } = values;
 
+    useEffect( //useEffect con funcion interna 
+        () => {
+            if (usuarioEditado !== null) {
+                setValues(usuarioEditado)
+            }
+
+        }
+        , [usuarioEditado]);
+
     const handleInputChange = (e) => {
         const changedFormValue = {
-            ...values,
+            ...values,//conservando lo que ya tenemos 
             //el input se captura acá 
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value// agregamos esto 
         }
         setValues(changedFormValue)
     }
 
     const handleSubmit = (e) => {
+        //el preventDefault, no produce la recarga de la pagina pero si capturo el evento 
         e.preventDefault();
-        usuarioAdd(values)
+        if (usuarioEditado !== null) {
+            usuarioEdit(values)
+        } else {
+            usuarioAdd(values)
+        }
     }
 
     return (
+        // { usuarioEditado ?} = usuarioEditado es nulo? si no es nulo muestra 'xxx', si es nulo muestra 'yyy'
+        //Antes de que hagas la ercarga, llama a la funcion
         <form onSubmit={handleSubmit}>
+            <h1>{usuarioEditado ? 'Editar Usuario' : 'Ingresar usuario'}</h1>
             <div className="form-group">
                 <label>ID</label>
                 <input
@@ -44,6 +61,7 @@ const FormularioComponent = ({usuarioAdd}) => {
                     placeholder="Key"
                     value={key}
                     name='key'
+                    //cuando cambie el valor interno --> mandame 
                     onChange={handleInputChange}
                 />
                 <br />
@@ -75,7 +93,7 @@ const FormularioComponent = ({usuarioAdd}) => {
             <div className="form-group">
                 <label>Edad</label>
                 <input
-                    type="number" 
+                    type="number"
                     className="form-control"
                     id="edad"
                     placeholder="Edad"
@@ -98,7 +116,7 @@ const FormularioComponent = ({usuarioAdd}) => {
                 ></input>
                 <br />
             </div>
-            <button type="submit" className="btn btn-outline-primary">Crear usuario</button>
+            <button type="submit" className="btn btn-outline-primary" >Crear usuario</button>
         </form>);
 }
 
